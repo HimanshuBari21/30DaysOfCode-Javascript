@@ -2,29 +2,24 @@
 
 function processData(input) {
     //Enter your code here
-    message = input.split("\n");
+    var input = input.split("\n");
     
-    var n = parseInt(message[0]);
+    for (let j = 1; j < input.length; j++) {
     
-    for (var x = 0; x < n; x++)
-        {
-            var m = message[x + 1];
-            var l = m.length;
-            var arr = m.split('');
-            var ra = "";
-            var rb = "";
-            
-            for (var y = 0; y < l; y++)
-                {
-                    if (y%2 == 0)
-                        ra = ra + arr[y];
-                    else
-                        rb = rb + arr[y];
-                }
-            console.log(ra + " " + rb);
-            
+        var evenString = "";
+        var oddString = "";
+        
+        for (let i = 0; i < input[j].length; i += 2) {
+            evenString += input[j][i];
         }
-} 
+        
+        for (let i = 1; i < input[j].length; i += 2) {
+            oddString += input[j][i];
+        }
+        
+        console.log(evenString + " " + oddString)
+    }
+}
 
 process.stdin.resume();
 process.stdin.setEncoding("ascii");
